@@ -3,7 +3,7 @@ import telebot,time
 from telebot import types
 from gatet import Tele
 import os
-token = '8250463794:AAGl0rUujU79YGIR6khBZHhPGDrZ9F-Ar6s'
+token = ''
 bot=telebot.TeleBot(token,parse_mode="HTML")
 @bot.message_handler(commands=["start"])
 def start(message):
@@ -91,7 +91,7 @@ by ➜ @strawhatchannel96 ''', reply_markup=mes)
 𝐁𝐨𝐭 𝐀𝐛𝐨𝐮𝐭: @strawhatchannel96'''
 				
 				print(last)
-				if 'thank' in last:
+				if 'succeeded' in last:
 					ch += 1
 					bot.reply_to(message, msg)
 					
