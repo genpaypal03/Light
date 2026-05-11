@@ -239,9 +239,9 @@ def Tele(ccx):
     )
     
     try:
-        result = re.search(r'"message":"(.*?)"', response.text).group(1)
+        result = re.search(r'"message": "(.*?)"', response.text).group(1)
     except:
-        result = re.search(r'"status":"(.*?)"', response.text).group(1)
+        result = re.search(r'"status": "(.*?)"', response.text).group(1)
 
     return result
     
